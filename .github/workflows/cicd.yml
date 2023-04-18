@@ -46,5 +46,4 @@ jobs:
           netlify env:set BASE_URL_SHOP $BASE_URL_SHOP
       - name: Deploy to Netlify
         run: |
-          netlify link --id $NETLIFY_SITE_ID
           netlify deploy --prod --site $NETLIFY_SITE_ID --auth $NETLIFY_AUTH_TOKEN
