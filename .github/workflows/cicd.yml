@@ -25,7 +25,6 @@ jobs:
     needs: [tests, linter]
     runs-on: ubuntu-latest
     env:
-      API_KEY: ${{ secrets.API_KEY }}
       NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
       NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
       BASE_URL_AUTH: https://websitepipelinetest.netlify.app
@@ -38,7 +37,6 @@ jobs:
         run: npm install --legacy-peer-deps
       - name: Set envs
         run: |
-          netlify env:set API_KEY $API_KEY
           netlify env:set BASE_URL_AUTH $BASE_URL_AUTH
           netlify env:set BASE_URL_WEBSITE $BASE_URL_WEBSITE
           netlify env:set BASE_URL_BLOG $BASE_URL_BLOG
