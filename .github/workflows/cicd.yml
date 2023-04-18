@@ -9,7 +9,7 @@ jobs:
       - name: install dependencies
         run: npm install --legacy-peer-deps
       - name: run tests
-        run: npm prepush
+        run: npm run prepush
   
   linter:
     needs: tests
@@ -17,7 +17,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: run lint
-        run: npm precommit
+        run: npm run precommit
 
   # deploy:
   #   runs-on: ubuntu-latest
