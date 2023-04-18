@@ -16,6 +16,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - name: install dependencies
+        run: npm install --legacy-peer-deps
       - name: run lint
         run: npm run precommit
 
