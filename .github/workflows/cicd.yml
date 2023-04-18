@@ -42,5 +42,4 @@ jobs:
           netlify env:set BASE_URL_BLOG $BASE_URL_BLOG
           netlify env:set BASE_URL_SHOP $BASE_URL_SHOP
       - name: deploy on master
-        run: |
-          cd apps/website && netlify deploy --prod --site $NETLIFY_SITE_ID --auth $NETLIFY_AUTH_TOKEN
+        run: netlify deploy --prod --site $NETLIFY_SITE_ID --auth $NETLIFY_AUTH_TOKEN
