@@ -35,11 +35,16 @@ jobs:
       - uses: actions/checkout@v3
       - name: install dependencies
         run: npm install --legacy-peer-deps
-      - name: Set envs
+      - name: Link the project to Netlify
+        run: netlify link --id $NETLIFY_SITE_ID
+
+      - name: Set environment variables to Netlify
         run: |
           netlify env:set BASE_URL_AUTH $BASE_URL_AUTH
           netlify env:set BASE_URL_WEBSITE $BASE_URL_WEBSITE
           netlify env:set BASE_URL_BLOG $BASE_URL_BLOG
           netlify env:set BASE_URL_SHOP $BASE_URL_SHOP
-      - name: deploy on master
-        run: netlify deploy --prod --site $NETLIFY_SITE_ID --auth $NETLIFY_AUTH_TOKEN
+      - name: Deploy to Netlify
+        run: |
+          netlify link --id $NETLIFY_SITE_ID
+          netlify deploy --prod --site $NETLIFY_SITE_ID --auth $NETLIFY_AUTH_TOKEN
